@@ -19,14 +19,14 @@ const TimelineCommentEditor = ({
   submitComment,
 }) => {
   return (
-    <Container className="timeline-comment-editor-container">
+    <div className="timeline-comment-editor-container">
       {error && <Message negative>{error}</Message>}
       <FormattedInputEditor
         data={commentContent}
         onChange={(event, editor) => setCommentContent(editor.getData())}
         minHeight="7rem"
       />
-      <Container className="mt-10" textAlign="right">
+      <div className="text-align-right rel-mt-1">
         <SaveButton
           icon="send"
           size="medium"
@@ -34,8 +34,8 @@ const TimelineCommentEditor = ({
           loading={isLoading}
           onClick={() => submitComment(commentContent, "html")}
         />
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 

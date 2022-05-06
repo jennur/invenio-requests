@@ -18,10 +18,10 @@ class RequestDetails extends Component {
       <Overridable id="InvenioRequests.RequestDetails.layout" {...this.props}>
         <>
           <Grid stackable reversed="mobile">
-            <Grid.Column width={13}>
+            <Grid.Column mobile={16} tablet={12} computer={13}>
               <Timeline />
             </Grid.Column>
-            <Grid.Column width={3}>
+            <Grid.Column mobile={16} tablet={4} computer={3}>
               <RequestMetadata request={request} />
             </Grid.Column>
           </Grid>

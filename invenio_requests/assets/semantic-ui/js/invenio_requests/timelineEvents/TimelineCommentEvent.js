@@ -89,6 +89,7 @@ class TimelineCommentEvent extends Component {
                   <Dropdown
                     icon="ellipsis horizontal"
                     className="right-floated"
+                    direction="left"
                   >
                     <Dropdown.Menu>
                       {canUpdate && (
@@ -130,7 +131,7 @@ class TimelineCommentEvent extends Component {
                   )}
 
                   {isEditing && (
-                    <Container className="mt-15" textAlign="right">
+                    <Container fluid className="mt-15" textAlign="right">
                       <CancelButton onClick={() => toggleEditMode()} />
                       <SaveButton
                         onClick={() => updateComment(commentContent, "html")}
@@ -139,13 +140,12 @@ class TimelineCommentEvent extends Component {
                     </Container>
                   )}
                 </Feed.Extra>
-                {commentHasBeenEdited ||
-                  (commentHasBeenDeleted && (
-                    <Feed.Meta>
-                      {commentHasBeenEdited && i18next.t("Edited")}
-                      {commentHasBeenDeleted && i18next.t("Deleted")}
-                    </Feed.Meta>
-                  ))}
+                {(commentHasBeenEdited || commentHasBeenDeleted) &&
+                  <Feed.Meta>
+                    {commentHasBeenEdited && i18next.t("Edited")}
+                    {commentHasBeenDeleted && i18next.t("Deleted")}
+                  </Feed.Meta>
+                }
               </Feed.Content>
             </RequestsFeed.Event>
           </RequestsFeed.Content>

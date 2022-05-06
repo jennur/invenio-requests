@@ -62,16 +62,16 @@ class RequestMetadata extends Component {
         <>
           <Requestor request={request} />
           <Divider />
-          <Header as="h4">{i18next.t("Request type")}</Header>
+          <Header as="h3" size="tiny">{i18next.t("Request type")}</Header>
           <Label>{request.type}</Label>
           <Divider />
-          <Header as="h4">{i18next.t("Status")}</Header>
+          <Header as="h3" size="tiny">{i18next.t("Status")}</Header>
           <RequestStatusIcon status={request.status} />
           {request.status}
           {request.expires_at && (
             <>
               <Divider />
-              <Header as="h4">{i18next.t("Expires")}</Header>
+              <Header as="h3" size="tiny">{i18next.t("Expires")}</Header>
               {timestampToRelativeTime(request.expires_at)}
             </>
           )}
