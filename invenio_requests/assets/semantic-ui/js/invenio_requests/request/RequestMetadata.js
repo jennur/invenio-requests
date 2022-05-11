@@ -21,7 +21,7 @@ const User = ({ user }) => (
 );
 const Community = ({ community }) => (
   <>
-    <Image src={community.logo} avatar rounded />
+    <Image src={community.logo} wrapped size="mini" className="mr-5"/>
     <span>{community.title}</span>
   </>
 );
