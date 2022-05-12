@@ -18,22 +18,28 @@
 {% block page_body %}
   {{ super() }}
   {%- block request_body %}
-  <div class="ui container request-detail-page rel-mt-2">
+  <div class="ui container request-detail-page">
 
     {%- block request_header %}
-    <div class="ui grid">
-      {% block request_actions %}
-      <div class="sixteen wide mobile eight wide tablet eight wide computer column right floated right aligned">
-        <div id="request-actions"></div>
+    <div class="ui stackable grid">
+
+      <div class="sixteen wide mobile ten wide tablet eight wide computer column">
+        <h2 class="ui header">
+          {% block request_header_title %}
+          {{ request.title }}
+          {% endblock request_header_title %}
+        </h2>
       </div>
-      {% endblock request_actions %}
+
+      <div class="sixteen wide mobile six wide tablet eight wide computer column right floated right aligned">
+        {% block request_actions %}
+          <div id="request-actions" class="rel-mb-1"></div>
+        {% endblock request_actions %}
+      </div>
     </div>
 
-    <h2 class="ui header">
-      {% block request_header_title %}
-      {{ request.title }}
-      {% endblock request_header_title %}
-    </h2>
+    <div class="ui divider"></div>
+
     {%- endblock request_header %}
 
     {%- block request_timeline %}
