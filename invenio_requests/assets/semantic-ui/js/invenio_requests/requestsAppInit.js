@@ -22,6 +22,10 @@ import {
   IconCancelStatus,
   IconExpireStatus,
 } from "./request";
+import {
+  LabelTypeSubmission,
+  LabelTypeInvitation,
+} from "./request"
 
 const requestDetailsDiv = document.getElementById("request-detail");
 const request = JSON.parse(requestDetailsDiv.dataset.record);
@@ -41,6 +45,8 @@ const overriddenComponents = {
   "RequestStatusIcon.layout.declined": IconDeclineStatus,
   "RequestStatusIcon.layout.cancelled": IconCancelStatus,
   "RequestStatusIcon.layout.expired": IconExpireStatus,
+  "RequestTypeLabel.layout.community-submission": LabelTypeSubmission,
+  "RequestTypeLabel.layout.community-invitation": LabelTypeInvitation,
 };
 
 ReactDOM.render(

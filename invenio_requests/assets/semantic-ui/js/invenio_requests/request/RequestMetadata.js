@@ -12,18 +12,32 @@ import Overridable from "react-overridable";
 import { Divider, Header, Label } from "semantic-ui-react";
 import { timestampToRelativeTime } from "../utils";
 import RequestStatusIcon from "./RequestStatusIcon";
+import RequestTypeLabel from "./RequestTypeLabel";
 
 const User = ({ user }) => (
-  <>
-    <Image src={user.links.avatar} avatar rounded />
+  <div class="flex">
+    <Image
+      src={user.links.avatar}
+      avatar
+      size="tiny"
+      className="mr-5"
+      ui={false}
+      rounded
+    />
     <span>{user.profile?.full_name || user.username}</span>
-  </>
+  </div>
 );
 const Community = ({ community }) => (
-  <>
-    <Image src={community.links.logo} wrapped size="mini" className="mr-5" />
+  <div class="flex">
+    <Image
+      src={community.links.logo}
+      avatar
+      size="tiny"
+      className="mr-5"
+      ui={false}
+    />
     <a href={`/communities/${community.slug}`}>{community.metadata.title}</a>
-  </>
+  </div>
 );
 
 const UserOrCommunity = ({ userData, details }) => {
@@ -39,15 +53,23 @@ const UserOrCommunity = ({ userData, details }) => {
   } else {
     // default unknown created_by
     return (
-      <>
-        <Image src="/static/images/square-placeholder.png" avatar rounded />
+      <div class="flex">
+        <Image
+          src="/static/images/square-placeholder.png"
+          avatar
+          size="tiny"
+          className="mr-5"
+          ui={false}
+          rounded
+        />
         <span>{userData.user?.id || userData.community?.id}</span>
-      </>
+      </div>
     );
   }
 };
 
 class RequestMetadata extends Component {
+
   render() {
     const { request } = this.props;
 
@@ -63,7 +85,7 @@ class RequestMetadata extends Component {
           <Divider />
 
           <Header as="h3" size="tiny">{i18next.t("Request type")}</Header>
-          <Label>{request.type}</Label>
+          <RequestTypeLabel type={request.type}/>
           <Divider />
 
           <Header as="h3" size="tiny">{i18next.t("Status")}</Header>

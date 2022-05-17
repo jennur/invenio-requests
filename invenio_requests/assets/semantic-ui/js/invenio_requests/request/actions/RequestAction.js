@@ -61,7 +61,7 @@ export class RequestAction extends Component {
 
               <Modal.Description>
                 <Trans
-                  defaults="Comment on your {{action}} request action (optional)."
+                  defaults="Add comment (optional)"
                   values={{ action: action }}
                 />
                 <Divider hidden />

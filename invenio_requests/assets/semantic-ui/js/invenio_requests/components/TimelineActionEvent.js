@@ -24,7 +24,13 @@ class TimelineActionEvent extends Component {
     let userAvatar,
       user = null;
     if (isUser) {
-      userAvatar = <Image src={expandedCreatedBy.links.avatar} avatar />;
+      userAvatar = <Image
+                      src={expandedCreatedBy.links.avatar}
+                      avatar
+                      size="tiny"
+                      className="mr-5"
+                      ui={false}
+                    />;
       user = expandedCreatedBy.profile?.full_name || expandedCreatedBy.username;
     }
 
@@ -39,16 +45,16 @@ class TimelineActionEvent extends Component {
           <RequestsFeed.Content isEvent={true}>
             <RequestsFeed.Icon name={iconName} size="large" color={iconColor} />
             <RequestsFeed.Event isActionEvent={true}>
-              <Feed.Label>{userAvatar}</Feed.Label>
               <Feed.Content>
-                <Feed.Summary>
-                  {user}{" "}
-                  <TimelineEventBody
-                    content={eventContent}
-                    format={event?.payload?.format}
-                  />
+                <Feed.Summary className="flex">
+                  {userAvatar}
+                  <b>{user}</b>
                   <Feed.Date>
-                    {timestampToRelativeTime(event.created)}
+                    <TimelineEventBody
+                      content={eventContent}
+                      format={event?.payload?.format}
+                    />
+                    {" "}{timestampToRelativeTime(event.created)}
                   </Feed.Date>
                 </Feed.Summary>
               </Feed.Content>
