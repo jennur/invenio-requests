@@ -15,6 +15,10 @@ import Error from "../../components/Error";
 import { CancelButton } from "../../components/Buttons";
 
 export class RequestActionModal extends Component {
+  constructor(props){
+    super(props);
+    this.cancelBtnRef = React.createRef();
+  }
   static contextType = RequestActionContext;
 
   componentDidMount() {
@@ -43,8 +47,8 @@ export class RequestActionModal extends Component {
       >
         {/*currentModalOpen prevents mounting multiple instances*/}
         {currentModalOpen && (
-          <Modal open={currentModalOpen}>
-            <Modal.Header>
+          <Modal role="dialog" id={modalId} open={currentModalOpen}>
+            <Modal.Header as="h2">
               <Overridable id={`RequestActionModal.title.${action}`}>
                 <Trans
                   defaults="{{action}} request"
@@ -60,6 +64,7 @@ export class RequestActionModal extends Component {
             </Modal.Content>
             <Modal.Actions>
               <CancelButton
+                ref={this.cancelBtnRef}
                 onClick={() => {
                   cleanError();
                   toggleModal(modalId, false);

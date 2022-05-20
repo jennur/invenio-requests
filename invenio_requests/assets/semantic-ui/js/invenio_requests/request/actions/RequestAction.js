@@ -34,9 +34,14 @@ export class RequestAction extends Component {
   };
 
   render() {
-    const { loading, performAction, toggleModal, error } = this.context;
+    const { loading, performAction, toggleModal, error, modalOpen } = this.context;
     const { action, requestType } = this.props;
     const modalId = action;
+    const buttonAria = {
+      'aria-expanded': !!modalOpen[modalId],
+      'aria-haspopup': 'dialog',
+      'aria-controls': modalId
+    }
     return (
       <Overridable
         id="InvenioRequests.RequestAction.layout"
@@ -51,10 +56,12 @@ export class RequestAction extends Component {
             loading={loading}
             action={action}
             requestType={requestType}
+            ariaAttributes={buttonAria}
           >
             <Button
               onClick={() => toggleModal(modalId, true)}
               loading={loading}
+              {...buttonAria}
             >
               {action}
             </Button>

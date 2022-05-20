@@ -5,7 +5,7 @@
 // under the terms of the MIT License; see LICENSE file for more details.
 import { i18next } from "@translations/invenio_requests/i18next";
 
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "semantic-ui-react";
 
 export const SaveButton = (props) => (
@@ -18,30 +18,44 @@ export const SaveButton = (props) => (
   />
 );
 
-export const CancelButton = (props) => (
-  <Button icon="cancel" content={i18next.t("Cancel")} size="mini" {...props} />
-);
+export const CancelButton = React.forwardRef((props, ref) => {
+  useEffect(() => {
+    ref?.current?.focus();
+  }, []);
 
-export const RequestCancelButton = ({ onClick, loading }) => (
+  return (
+    <Button
+      ref={ref}
+      icon="cancel"
+      content={i18next.t("Cancel")}
+      size="mini"
+      {...props}
+    />
+  )
+});
+
+export const RequestCancelButton = ({ onClick, loading, ariaAttributes }) => (
   <Button
     icon="cancel"
     content={i18next.t("Cancel")}
     onClick={onClick}
     loading={loading}
+    {...ariaAttributes}
   />
 );
 
-export const RequestDeclineButton = ({ onClick, loading }) => (
+export const RequestDeclineButton = ({ onClick, loading, ariaAttributes }) => (
   <Button
     icon="cancel"
     content={i18next.t("Decline")}
     onClick={onClick}
     loading={loading}
     color="red"
+    {...ariaAttributes}
   />
 );
 
-export const RequestAcceptButton = ({ onClick, requestType, loading }) => {
+export const RequestAcceptButton = ({ onClick, requestType, loading, ariaAttributes }) => {
   const requestIsCommunitySubmission = requestType === "community-submission";
   const buttonText = requestIsCommunitySubmission
     ? i18next.t("Accept and publish")
@@ -53,6 +67,7 @@ export const RequestAcceptButton = ({ onClick, requestType, loading }) => {
       onClick={onClick}
       color="green"
       loading={loading}
+      {...ariaAttributes}
     />
   );
 };
