@@ -6,11 +6,11 @@
 
 import FormattedInputEditor from "../components/FormattedInputEditor";
 import React from "react";
-import { Image } from "react-invenio-forms";
 import { SaveButton } from "../components/Buttons";
-import { Grid, Message } from "semantic-ui-react";
+import { Container, Message } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { i18next } from "@translations/invenio_requests/i18next";
+import { RequestEventAvatarContainer } from "../components/RequestsFeed";
 
 const TimelineCommentEditor = ({
   isLoading,
@@ -23,19 +23,16 @@ const TimelineCommentEditor = ({
   return (
     <div className="timeline-comment-editor-container">
       {error && <Message negative>{error}</Message>}
-      <Grid>
-        <Grid.Column width={1}>
-          <Image src={userAvatar} alt="" aria-hidden={true} />
-        </Grid.Column>
-        <Grid.Column width={15}>
+      <div className="flex">
+        <RequestEventAvatarContainer src={userAvatar} className="tablet computer only rel-mr-1"/>
+        <Container fluid className="ml-0-mobile mr-0-mobile fluid-mobile">
           <FormattedInputEditor
             data={commentContent}
             onChange={(event, editor) => setCommentContent(editor.getData())}
             minHeight="7rem"
           />
-        </Grid.Column>
-      </Grid>
-
+        </Container>
+      </div>
       <div className="text-align-right rel-mt-1">
         <SaveButton
           icon="send"

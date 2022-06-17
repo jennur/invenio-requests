@@ -49,7 +49,7 @@ class TimelineFeed extends Component {
       <Loader isLoading={loading}>
         <Error error={error}>
           <Overridable id="TimelineFeed.layout" {...this.props}>
-            <Container id="requests-timeline">
+            <Container id="requests-timeline" className="ml-0-mobile mr-0-mobile">
               <RequestsFeed>
                 {timeline.hits?.hits.map((event) => (
                   <TimelineCommentEventControlled
