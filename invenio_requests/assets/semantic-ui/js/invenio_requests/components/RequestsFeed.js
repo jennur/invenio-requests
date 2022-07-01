@@ -37,7 +37,7 @@ export const RequestEventAvatarContainer = ({ src, ...uiProps }) => (
 
 export const RequestEventItemIconContainer = ({ name, size, color }) => (
   <div className="requests-action-event-icon">
-    <Icon name={name} size={size} color={color} />
+    <Icon name={name} size={size} className={color} />
   </div>
 );
 

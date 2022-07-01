@@ -11,7 +11,7 @@ import TimelineActionEvent from "../components/TimelineActionEvent";
 export const TimelineAcceptEvent = ({ event }) => (
   <TimelineActionEvent
     iconName="check circle"
-    iconColor="green"
+    iconColor="positive"
     event={event}
     eventContent={i18next.t("accepted this request")}
   />
@@ -22,7 +22,7 @@ export const TimelineDeclineEvent = ({ event }) => (
     iconName="close"
     event={event}
     eventContent={i18next.t("declined this request")}
-    iconColor="red"
+    iconColor="negative"
   />
 );
 
@@ -31,7 +31,7 @@ export const TimelineExpireEvent = ({ event }) => (
     iconName="calendar times"
     event={event}
     eventContent={i18next.t("this request expired")}
-    iconColor="red"
+    iconColor="negative"
   />
 );
 
@@ -40,14 +40,14 @@ export const TimelineCancelEvent = ({ event }) => (
     iconName="close"
     event={event}
     eventContent={i18next.t("cancelled this request")}
-    iconColor="red"
+    iconColor="negative"
   />
 );
 
 export const TimelineUnknownEvent = ({ event }) => (
   <TimelineActionEvent
     iconName="close"
-    iconColor="red"
+    iconColor="negative"
     event={event}
     eventContent={i18next.t("unknown event")}
   />

@@ -32,7 +32,7 @@ export const RequestDeclineButton = ({
       onClick={onClick}
       loading={loading}
       disabled={loading}
-      color="red"
+      negative
       size={size}
       className={className}
       {...ariaAttributes}
@@ -57,7 +57,7 @@ export const RequestAcceptButton = ({
       icon="checkmark"
       content={buttonText}
       onClick={onClick}
-      color="green"
+      positive
       loading={loading}
       disabled={loading}
       size={size}
@@ -90,7 +90,6 @@ export const RequestCancelButton = ({
   ariaAttributes,
   size,
   className,
-  color,
   content = i18next.t("Cancel"),
 }) => {
   return (
@@ -102,7 +101,6 @@ export const RequestCancelButton = ({
       disabled={loading}
       size={size}
       className={className}
-      color={color}
       {...ariaAttributes}
     />
   );
@@ -119,7 +117,7 @@ export const RequestCancelButtonModal = ({
     loading={loading}
     size={size}
     content={i18next.t("Cancel request")}
-    color="red"
+    className="negative"
     {...ariaAttributes}
   />
 );
