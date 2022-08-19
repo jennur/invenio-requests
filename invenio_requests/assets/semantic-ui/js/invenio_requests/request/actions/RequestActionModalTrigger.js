@@ -58,7 +58,7 @@ RequestActionModalTrigger.propTypes = {
 };
 
 RequestActionModalTrigger.defaultProps = {
-  size: "medium",
+  size: "small",
   device: "",
 };
 
