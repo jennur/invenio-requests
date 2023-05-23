@@ -34,6 +34,10 @@ export const MobileRequestItem = ({
     creatorName =
       result.expanded?.created_by.metadata?.title || result.created_by.community;
   }
+
+  const getUserIcon = (receiver) =>  {
+    return receiver?.is_ghost ? "user secret" : "users";
+  }
   return (
     <Item key={result.id} className="mobile only flex">
       <Item.Content className="centered">
@@ -65,7 +69,7 @@ export const MobileRequestItem = ({
           <small className="mb-5 block">
             {result.receiver.community && result.expanded?.receiver.metadata.title && (
               <>
-                <Icon className="default-margin" name="users" />
+                <Icon className="default-margin" name={getUserIcon(result.expanded?.receiver)} />
                 <span className="ml-5">{result.expanded?.receiver.metadata.title}</span>
               </>
             )}

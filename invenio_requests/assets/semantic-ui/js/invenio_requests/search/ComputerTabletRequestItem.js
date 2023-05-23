@@ -35,6 +35,10 @@ export const ComputerTabletRequestItem = ({
       result.expanded?.created_by.metadata?.title || result.created_by.community;
   }
 
+  const getUserIcon = (receiver) =>  {
+    return receiver?.is_ghost ? "user secret" : "users";
+  }
+
   return (
     <Item key={result.id} className="computer tablet only flex">
       <div className="status-icon mr-10">
@@ -73,13 +77,15 @@ export const ComputerTabletRequestItem = ({
                 ),
               }}
             />
-            {isCreatorCommunity && <Icon className="default-margin" name="users" />}{" "}
+            {isCreatorCommunity && (
+              <Icon className="default-margin" name={getUserIcon(result.expanded?.receiver)} />
+            )}{" "}
             {creatorName}
           </small>
           <small className="right floated">
             {result.receiver.community && result.expanded?.receiver.metadata.title && (
               <>
-                <Icon className="default-margin" name="users" />
+                <Icon className="default-margin" name={getUserIcon(result.expanded?.receiver)} />
                 <span className="ml-5">{result.expanded?.receiver.metadata.title}</span>
               </>
             )}
