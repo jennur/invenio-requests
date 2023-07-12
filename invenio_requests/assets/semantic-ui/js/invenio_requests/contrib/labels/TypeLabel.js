@@ -9,19 +9,19 @@ import React from "react";
 import { Label } from "semantic-ui-react";
 
 export const LabelTypeCommunitySubmission = (props) => (
-  <Label className="primary" size="small">
+  <Label horizontal className="primary" size="small">
     {i18next.t("Draft review")}
   </Label>
 );
 
 export const LabelTypeCommunityInclusion = (props) => (
-  <Label className="primary" size="small">
+  <Label horizontal className="primary" size="small">
     {i18next.t("Community inclusion")}
   </Label>
 );
 
 export const LabelTypeCommunityInvitation = (props) => (
-  <Label className="primary" size="small">
+  <Label horizontal className="primary" size="small">
     {i18next.t("Member invitation")}
   </Label>
 );

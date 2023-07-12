@@ -38,6 +38,11 @@ export const MobileRequestItem = ({
   const getUserIcon = (receiver) =>  {
     return receiver?.is_ghost ? "user secret" : "users";
   }
+  const getTypeIcon = (type) => {
+    if (type =="community-invitation") return "user plus";
+    else return "plus";
+  }
+
   return (
     <Item key={result.id} className="mobile only flex">
       <Item.Content className="centered">
@@ -47,9 +52,9 @@ export const MobileRequestItem = ({
             <RequestStatusLabel status={result.status} />
           )}
         </Item.Extra>
-        <Item.Header className="truncate-lines-2">
-          <a className="header-link" href={detailsURL}>
-            <Icon size="small" name="conversation" color="black" />
+        <Item.Header className="truncate-lines-2 rel-mt-1">
+          <a className="header-link p-0" href={detailsURL}>
+            <Icon size="small" name={getTypeIcon(result.type)} className="neutral mr-5" />
             {result.title}
           </a>
         </Item.Header>
@@ -63,10 +68,10 @@ export const MobileRequestItem = ({
                   i18next.language
                 ),
               }}
-            />
+            />{" "}
             {creatorName}
           </small>
-          <small className="mb-5 block">
+          <small className="block rel-mt-1">
             {result.receiver.community && result.expanded?.receiver.metadata.title && (
               <>
                 <Icon className="default-margin" name={getUserIcon(result.expanded?.receiver)} />
@@ -84,7 +89,7 @@ export const MobileRequestItem = ({
             )}
           </small>
           {!result.is_closed && (
-            <div className="block">
+            <div className="block rel-mt-1">
               <RequestActionController
                 request={result}
                 actionSuccessCallback={() => updateQueryState(currentQueryState)}

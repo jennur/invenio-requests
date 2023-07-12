@@ -39,7 +39,15 @@ export const RequestDeclineModalTrigger = ({
         />
       </Media>
       <Media at="mobile">
-        <Dropdown.Item icon="cancel" onClick={onClick} content={i18next.t("Decline")} />
+        <Dropdown.Item
+          icon={{
+            name: "cancel",
+            color: "negative",
+            className: "mr-5",
+          }}
+          onClick={onClick}
+          content={i18next.t("Decline")}
+        />
       </Media>
     </MediaContextProvider>
   );
@@ -84,7 +92,15 @@ export const RequestAcceptModalTrigger = ({
         />
       </Media>
       <Media at="mobile">
-        <Dropdown.Item icon="checkmark" onClick={onClick} content={text} />{" "}
+        <Dropdown.Item
+          icon={{
+            name: "checkmark",
+            color: "positive",
+            className: "mr-5",
+          }}
+          onClick={onClick}
+          content={text}
+        />
       </Media>
     </MediaContextProvider>
   );
@@ -125,7 +141,14 @@ export const RequestCancelModalTrigger = ({
         />
       </Media>
       <Media at="mobile">
-        <Dropdown.Item icon="cancel" onClick={onClick} content={i18next.t("Cancel")} />
+        <Dropdown.Item
+          icon={{
+            name: "cancel",
+            className: "neutral mr-5",
+          }}
+          onClick={onClick}
+          content={i18next.t("Cancel")}
+        />
       </Media>
     </MediaContextProvider>
   );

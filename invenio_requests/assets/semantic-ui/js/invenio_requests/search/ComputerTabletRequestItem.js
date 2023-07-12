@@ -39,12 +39,17 @@ export const ComputerTabletRequestItem = ({
     return receiver?.is_ghost ? "user secret" : "users";
   }
 
+  const getTypeIcon = (type) => {
+    if (type =="community-invitation") return "user plus";
+    else return "plus";
+  }
+
   return (
     <Item key={result.id} className="computer tablet only flex">
       <div className="status-icon mr-10">
         <Item.Content verticalAlign="top">
           <Item.Extra>
-            <Icon color="black" name="conversation" />
+            <Icon name={getTypeIcon(result.type)} className="neutral" />
           </Item.Extra>
         </Item.Content>
       </div>
@@ -61,7 +66,7 @@ export const ComputerTabletRequestItem = ({
             />
           </div>
         </Item.Extra>
-        <Item.Header className="truncate-lines-2">
+        <Item.Header className={`truncate-lines-2 ${result.is_closed && "mt-5"}`}>
           <a className="header-link" href={detailsURL}>
             {result.title}
           </a>
@@ -76,10 +81,7 @@ export const ComputerTabletRequestItem = ({
                   i18next.language
                 ),
               }}
-            />
-            {isCreatorCommunity && (
-              <Icon className="default-margin" name={getUserIcon(result.expanded?.receiver)} />
-            )}{" "}
+            />{" "}
             {creatorName}
           </small>
           <small className="right floated">

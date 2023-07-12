@@ -10,7 +10,7 @@ import { i18next } from "@translations/invenio_requests/i18next";
 
 export const LabelStatusSubmit = (props) => {
   return (
-    <Label className="primary" size="small">
+    <Label horizontal className="primary" size="small">
       <Icon name="clock outline" />
       {i18next.t("Submitted")}
     </Label>
@@ -19,7 +19,7 @@ export const LabelStatusSubmit = (props) => {
 
 export const LabelStatusDelete = (props) => {
   return (
-    <Label className="negative" size="small">
+    <Label horizontal className="negative" size="small">
       <Icon name="trash" />
       {i18next.t("Deleted")}
     </Label>
@@ -28,7 +28,7 @@ export const LabelStatusDelete = (props) => {
 
 export const LabelStatusAccept = (props) => {
   return (
-    <Label className="positive" size="small">
+    <Label horizontal className="positive" size="small">
       <Icon name="check circle" />
       {i18next.t("Accepted")}
     </Label>
@@ -37,7 +37,7 @@ export const LabelStatusAccept = (props) => {
 
 export const LabelStatusDecline = (props) => {
   return (
-    <Label className="negative" size="small">
+    <Label horizontal className="negative" size="small">
       <Icon name="times" />
       {i18next.t("Declined")}
     </Label>
@@ -46,7 +46,7 @@ export const LabelStatusDecline = (props) => {
 
 export const LabelStatusCancel = (props) => {
   return (
-    <Label className="neutral" size="small">
+    <Label horizontal className="neutral" size="small">
       <Icon name="stop" />
       {i18next.t("Cancelled")}
     </Label>
@@ -55,7 +55,7 @@ export const LabelStatusCancel = (props) => {
 
 export const LabelStatusExpire = (props) => {
   return (
-    <Label className="expired" size="small">
+    <Label horizontal className="expired" size="small">
       <Icon name="calendar times outline" />
       {i18next.t("Expired")}
     </Label>

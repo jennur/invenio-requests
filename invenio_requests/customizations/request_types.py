@@ -84,8 +84,8 @@ class RequestType:
         "submit": SubmitAction,
         "delete": DeleteAction,
         "accept": AcceptAction,
-        "cancel": CancelAction,
         "decline": DeclineAction,
+        "cancel": CancelAction,
         "expire": ExpireAction,
     }
     """Available actions for this Request.

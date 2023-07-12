@@ -39,7 +39,7 @@ export const RequestActions = ({ request, size }) => {
             floating
             labeled
             button
-            className="icon rel-mt-1"
+            className="icon"
           >
             <Dropdown.Menu>
               {actions.map((action) => {
