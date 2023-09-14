@@ -12,8 +12,12 @@
 import React from "react";
 import { Icon } from "semantic-ui-react";
 
-export const AccessRequestIcon = () => <Icon name="unlock alternate" />;
-export const CommunityInclusionIcon = () => <Icon name="comments outline" />;
+export const AccessRequestIcon = () => (
+  <Icon name="unlock alternate" className="neutral" />
+);
+export const CommunityInclusionIcon = () => (
+  <Icon name="plus" className="neutral" />
+);
 export const CommunityInvitationIcon = () => (
   <Icon name="user plus" className="neutral" />
 );
