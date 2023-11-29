@@ -131,7 +131,16 @@ class RequestMetadata extends Component {
               {toRelativeTime(request.expires_at, i18next.language)}
             </>
           )}
-          <Divider hidden />
+
+          {request.status === "accepted" && request.topic?.record && (
+            <>
+              <Divider />
+              <Header as="h3" size="tiny">
+                {i18next.t("Record")}
+              </Header>
+              <a href={`/records/${request.topic.record}`}>{request.title}</a>
+            </>
+          )}
         </>
       </Overridable>
     );
